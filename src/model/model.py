@@ -7,7 +7,7 @@ class UNET(nn.Module):
         super().__init__()
         self.down_layers, self.up_layers = build_layers([1, 1, 1], 8)
         self.first = conv2d_norm(3, 8, 7, 1)
-        self.last = conv2d_norm(16, 3, 7, 1)
+        self.last = conv2d_norm(8, 3, 7, 1)
 
 
     def forward(self, x):

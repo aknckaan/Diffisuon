@@ -20,7 +20,6 @@ class LitAutoEncoder(pl.LightningModule):
 
     def training_step(self, train_batch, batch_idx):
         x, y = train_batch
-        x = x.view(x.size(0), -1)
         x_hat = self.forward(x)  
         loss = F.mse_loss(x_hat, x)
         self.log('train_loss', loss)
@@ -28,7 +27,6 @@ class LitAutoEncoder(pl.LightningModule):
 
     def validation_step(self, val_batch, batch_idx):
         x, y = val_batch
-        x = x.view(x.size(0), -1)
         x_hat = self.forward(x)  
         loss = F.mse_loss(x_hat, x)
         self.log('val_loss', loss)

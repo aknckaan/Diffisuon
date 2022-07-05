@@ -76,7 +76,7 @@ def build_layers(reps, in_features):
 
         cur_features = cur_features*2
 
-    return down_layers, up_layers[::-1] [:-1]# remove the last one
+    return down_layers, up_layers[::-1] # remove the last one
 
 
 if __name__ == "__main__":
